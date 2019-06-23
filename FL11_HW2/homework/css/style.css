@@ -223,7 +223,7 @@
         line-height: 30px;
     }
 
-    .tm-team-description-container {
+    .tm-content-box.flex-2-col .tm-team-description-container {
         float: left;
         width: 33%;
         margin-top: 15%;
