@@ -214,28 +214,21 @@
 
     h2 + p {
         font-style: italic;
+    }
+
+    h2 ~ p {
         text-indent: 25px;
         line-height: 30px;
     }
 
-    p ~ p {
-        text-indent: 25px;
-        line-height: 30px;
+    .gallery-container P {
+        text-indent: 0;
     }
 
-    .tm-content-box.flex-2-col .tm-team-description-container {
-        float: left;
-        width: 33%;
-        margin-top: 15%;
-    }
-    
-    .tm-team-img {
-        float: right;
-        width: 67%;
-    }
-
-    .tm-team-img img {
-        width: 100%;
+    div.tm-content-box.flex-2-col {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
     }
 
     .tm-banner-text {
