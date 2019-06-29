@@ -18,7 +18,7 @@ header {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 800px;
+    height: 900px;
 }
 
 .header_wrap {
@@ -95,7 +95,7 @@ main {
 }
 
 .main_discr {
-    background: linear-gradient(to top right, #f3f3f3 0% 50%, #000000 50% 100%);
+    background-image: linear-gradient(to top right, #f3f3f3 50%, #000000 50%);
     display: flex;
     padding: 0 40px;
     justify-content: space-between;
