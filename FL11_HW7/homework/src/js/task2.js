@@ -53,6 +53,3 @@ while (conf) {
 if (!conf) {
     alert('You did not become a billionaire, but can.');
 }
-
-
-alert("test");
