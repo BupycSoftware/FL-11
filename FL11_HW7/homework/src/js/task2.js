@@ -14,10 +14,10 @@ let conf = confirm('Do you want to play a game?');
 while (conf) {
     const random_number = Math.floor(Math.random() * (max + 1 - min) + min);
     for (let i = 0; i < attempts; i++) {
-        let user_number = +prompt('Choose a roulette pocket number from ' + min + ' to ' + max 
+        let user_number = parseFloat(prompt('Choose a roulette pocket number from ' + min + ' to ' + max 
         + '\nAttempts left: ' + current_attempt 
         + '\nTotal prize: ' + prize 
-        + '$ \nPossible prize on current attempt: ' + current_prize + '$');
+        + '$ \nPossible prize on current attempt: ' + current_prize + '$'));
         if (user_number === random_number) {
             prize += current_prize;
             conf = confirm('Congratulation, you won!   Your prize is: ' + prize + '$. Do you want to continue?');
@@ -27,13 +27,7 @@ while (conf) {
                 current_attempt = attempts;
                 current_coeff *= coeff;
             } else {
-                alert('Thank you for your participation. Your prize is: ' + prize + '$');
-                current_coeff = coeff;
-                current_attempt = attempts;
-                prize = 0;
-                current_prize = default_prize;
-                max = default_max;
-                conf = confirm('Do you want to play again?');
+                current_attempt = 0;
             }
             break;
         }
