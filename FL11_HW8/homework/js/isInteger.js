@@ -1,5 +1,5 @@
-function isInteger(a) {
-    return (a ^ 0) === a;
+function isInteger(number) {
+    return (number ^ 0) === number;
 }
 
 console.log(isInteger(5));
