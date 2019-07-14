@@ -1,7 +1,6 @@
 function formatTime(received_number) {
     let days = 0;
     let hours = 0;
-    let minutes = 0;
     while (received_number >= 60) {
         received_number -= 60;
         hours++;
@@ -10,8 +9,7 @@ function formatTime(received_number) {
         hours -= 24;
         days++;
     }
-    minutes = received_number;
-    return days + ' day(s) ' + hours +' hour(s) ' + minutes + ' minute(s).'
+    return days + ' day(s) ' + hours + ' hour(s) ' + received_number + ' minute(s).'
 }
 
 console.log(formatTime(120));
