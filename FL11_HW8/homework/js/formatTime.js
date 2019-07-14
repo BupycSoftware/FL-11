@@ -11,7 +11,7 @@ function formatTime(received_number) {
         days++;
     }
     minutes = received_number;
-    return days + " day(s) " + hours +" hour(s) " + minutes + " minute(s)."
+    return days + ' day(s) ' + hours +' hour(s) ' + minutes + ' minute(s).'
 }
 
 console.log(formatTime(120));
