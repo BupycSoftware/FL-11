@@ -62,12 +62,12 @@ function daysBetween(first_date, second_date) {
     const thousand = 1000;
     const sixty = 60;
     const twenty_four = 24;
-    let first_date_parse = Date.parse(first_date);
-    let second_date_parse = Date.parse(second_date);
-    let difference = second_date_parse - first_date_parse;
-    let days = difference / (thousand * sixty * sixty * twenty_four);
-    return Math.round(days);
+    let daysInFirst = Math.floor(Date.parse(first_date) / (thousand * sixty * sixty * twenty_four));
+    let daysInSecond = Math.floor(Date.parse(second_date) / (thousand * sixty * sixty * twenty_four));
+    return daysInSecond - daysInFirst;
 }
+
+console.log(daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00')));
 
 function getAmountOfAdultPeople(data) {
     const oneYear = 365;
@@ -79,7 +79,7 @@ function getAmountOfAdultPeople(data) {
         array.push(years);
     }
     const fullYears = filterArray(array, function(el) {
-        return el > adult;
+        return el >= adult;
     });
     return fullYears.length;
 }
@@ -103,38 +103,3 @@ function values(received_object) {
     }
     return array;
 }
-
-let task8 = [
-    {
-      '_id': '5b5e3168c6bf40f2c1235cd6',
-      'index': 0,
-      'birthday': '2016-03-18T00:00:00',
-      'eyeColor': 'green',
-      'name': 'Stein',
-      'favoriteFruit': 'apple'
-    },
-    {
-      '_id': '5b5e3168e328c0d72e4f27d8',
-      'index': 1,
-      'birthday': '1991-02-11T00:00:00',
-      'eyeColor': 'blue',
-      'name': 'Cortez',
-      'favoriteFruit': 'strawberry'
-    },
-    {
-      '_id': '5b5e3168cc79132b631c666a',
-      'index': 2,
-      'birthday': '1984-04-17T00:00:00',
-      'eyeColor': 'blue',
-      'name': 'Suzette',
-      'favoriteFruit': 'apple'
-    },
-    {
-      '_id': '5b5e31682093adcc6cd0dde5',
-      'index': 3,
-      'birthday': '1994-04-17T00:00:00',
-      'eyeColor': 'green',
-      'name': 'George',
-      'favoriteFruit': 'banana'
-    }
-]
