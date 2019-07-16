@@ -67,8 +67,6 @@ function daysBetween(first_date, second_date) {
     return daysInSecond - daysInFirst;
 }
 
-console.log(daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00')));
-
 function getAmountOfAdultPeople(data) {
     const oneYear = 365;
     const adult = 18;
