@@ -70,19 +70,26 @@ function battle(fighter1, fighter2) {
     } else if (person2.hp <= 0) {
         console.log(person2.name + ' is dead and cant fight.');
     } else {
+        let first = true;
         let timer = setInterval(() => {
-            if (person1.hp === 0) {
-                fighter1.obj.losses += 1;
-                fighter2.obj.wins += 1;
-                clearInterval(timer);
-            } else if (person2.hp === 0) {
-                fighter2.obj.losses += 1;
-                fighter1.obj.wins += 1;
-                clearInterval(timer);
-            } else {
+            if (first) {
                 fighter1.attack(fighter2);
+                if (person2.hp === 0) {
+                    fighter2.obj.losses += 1;
+                    fighter1.obj.wins += 1;
+                    clearInterval(timer);
+                    console.log(`${person1.name} win!`);
+                }
+            } else {
                 fighter2.attack(fighter1);
+                if (person1.hp === 0) {
+                    fighter1.obj.losses += 1;
+                    fighter2.obj.wins += 1;
+                    clearInterval(timer);
+                    console.log(`${person2.name} win!`);
+                }
             }
+            first = !first;
         }, timeout);
     }
 }
