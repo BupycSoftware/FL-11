@@ -27,7 +27,7 @@ function Fighter(person) {
             let left_hp = attacked_person.person_info.hp - person.damage;
             left_hp < 0 ? attacked_person.person_info.hp = 0 : attacked_person.person_info.hp = left_hp;
         } else {
-            console.log(`${name} attack missed`);
+            console.log(`${person.name} attack missed`);
         }
     };
     this.logCombatHistory = function() {
@@ -93,3 +93,6 @@ function battle(fighter1, fighter2) {
         }, timeout);
     }
 }
+
+const John = new Fighter({name: 'John', damage: 20, hp: 100, agility: 25});
+const Jim = new Fighter({name: 'Jim', damage: 10, agility: 40, hp: 120}); 
