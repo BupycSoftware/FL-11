@@ -75,16 +75,16 @@ function battle(fighter1, fighter2) {
             if (first) {
                 fighter1.attack(fighter2);
                 if (person2.hp === 0) {
-                    fighter2.obj.losses += 1;
-                    fighter1.obj.wins += 1;
+                    fighter2.addLoss();
+                    fighter1.addWin();
                     clearInterval(timer);
                     console.log(`${person1.name} win!`);
                 }
             } else {
                 fighter2.attack(fighter1);
                 if (person1.hp === 0) {
-                    fighter1.obj.losses += 1;
-                    fighter2.obj.wins += 1;
+                    fighter1.addLoss();
+                    fighter2.addWin();
                     clearInterval(timer);
                     console.log(`${person2.name} win!`);
                 }
@@ -93,6 +93,3 @@ function battle(fighter1, fighter2) {
         }, timeout);
     }
 }
-
-const John = new Fighter({name: 'John', damage: 20, hp: 100, agility: 25});
-const Jim = new Fighter({name: 'Jim', damage: 10, agility: 40, hp: 120}); 
