@@ -35,9 +35,11 @@ function _dragStart(event) {
     draggedText = event.target.getElementsByClassName('added_label_text')[0].textContent;
 }
 
-function _dragEnd() {
-    draggedElement.classList.remove('drag');
-    draggedElement.style.opacity = 'unset';
+function _dragEnd(event) {
+    if (event.target.tagName === 'LI') {
+        draggedElement.classList.remove('drag');
+        draggedElement.style.opacity = 'unset';
+    }
 }
 
 function _dragEnter(event) {
