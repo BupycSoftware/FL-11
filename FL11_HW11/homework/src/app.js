@@ -33,30 +33,6 @@ function maximum_check() {
 
 add_input.addEventListener('input', empty_check);
 
-container.addEventListener('dragenter', (event) => {
-    if (event.target.tagName === 'LI') {
-        oldText = event.target.getElementsByClassName('added_label_text')[0].textContent;
-        draggedElement = event.target;
-        event.target.style.opacity = '0.5';
-        event.target.classList.add('drag');
-        event.target.getElementsByClassName('added_label_text')[0].textContent = draggedText;
-        event.target.getElementsByClassName('added_input_text')[0].value = draggedText;
-    }
-});
-
-container.addEventListener('dragleave', (event) => {
-    if (event.target.tagName === 'LI') {
-        event.target.getElementsByClassName('added_label_text')[0].textContent = oldText;
-        event.target.getElementsByClassName('added_input_text')[0].value = oldText;
-        event.target.classList.remove('drag');
-        event.target.style.opacity = 'unset';
-    }
-});
-
-container.addEventListener('dragover', (event) => {
-    event.preventDefault();
-});
-
 add_btn.addEventListener('click', () => {
     empty_check();
     maximum_check();
@@ -104,6 +80,34 @@ add_btn.addEventListener('click', () => {
                 draggedElement.classList.remove('drag');
                 draggedElement.style.opacity = 'unset';
             }
+        });
+
+        li.addEventListener('dragenter', (event) => {
+            if (event.target.tagName === 'LI') {
+                oldText = event.target.getElementsByClassName('added_label_text')[0].textContent;
+                draggedElement = event.target;
+                event.target.style.opacity = '0.5';
+                event.target.classList.add('drag');
+                event.target.getElementsByClassName('added_label_text')[0].textContent = draggedText;
+                event.target.getElementsByClassName('added_input_text')[0].value = draggedText;
+            }
+        });
+        
+        li.addEventListener('dragleave', (event) => {
+            if (event.relatedTarget.tagName === 'LI' 
+            && event.target.id !== 'edit'
+            && event.target.className !== 'added_label_text'
+            && event.target.className !== 'material-icons added_ico_checkbox'
+            && event.target.className !== 'material-icons added_ico_delete') {
+                event.target.getElementsByClassName('added_label_text')[0].textContent = oldText;
+                event.target.getElementsByClassName('added_input_text')[0].value = oldText;
+                event.target.classList.remove('drag');
+                event.target.style.opacity = 'unset';
+            }
+        });
+        
+        li.addEventListener('dragover', (event) => {
+            event.preventDefault();
         });
 
         checkbox_ico.addEventListener('click', () => {
