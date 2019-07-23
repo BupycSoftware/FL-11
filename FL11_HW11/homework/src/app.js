@@ -31,18 +31,9 @@ function maximum_check() {
     }
 }
 
-function _dragStart(event) {
-    draggedText = event.target.getElementsByClassName('added_label_text')[0].textContent;
-}
+add_input.addEventListener('input', empty_check);
 
-function _dragEnd(event) {
-    if (event.target.tagName === 'LI') {
-        draggedElement.classList.remove('drag');
-        draggedElement.style.opacity = 'unset';
-    }
-}
-
-function _dragEnter(event) {
+container.addEventListener('dragenter', (event) => {
     if (event.target.tagName === 'LI') {
         oldText = event.target.getElementsByClassName('added_label_text')[0].textContent;
         draggedElement = event.target;
@@ -51,27 +42,20 @@ function _dragEnter(event) {
         event.target.getElementsByClassName('added_label_text')[0].textContent = draggedText;
         event.target.getElementsByClassName('added_input_text')[0].value = draggedText;
     }
-}
+});
 
-function _dragLeave(event) {
+container.addEventListener('dragleave', (event) => {
     if (event.target.tagName === 'LI') {
         event.target.getElementsByClassName('added_label_text')[0].textContent = oldText;
         event.target.getElementsByClassName('added_input_text')[0].value = oldText;
         event.target.classList.remove('drag');
         event.target.style.opacity = 'unset';
     }
-}
+});
 
-function _dragOver(event) {
+container.addEventListener('dragover', (event) => {
     event.preventDefault();
-}
-
-add_input.addEventListener('input', empty_check);
-container.addEventListener('dragstart', _dragStart);
-container.addEventListener('dragend', _dragEnd);
-container.addEventListener('dragenter', _dragEnter);
-container.addEventListener('dragleave', _dragLeave);
-container.addEventListener('dragover', _dragOver);
+});
 
 add_btn.addEventListener('click', () => {
     empty_check();
@@ -110,6 +94,17 @@ add_btn.addEventListener('click', () => {
         li.appendChild(save_ico);
         li.appendChild(delete_ico);
         container.appendChild(li);
+
+        li.addEventListener('dragstart', (event) => {
+            draggedText = event.target.getElementsByClassName('added_label_text')[0].textContent;
+        });
+
+        li.addEventListener('dragend', (event) => {
+            if (event.target.tagName === 'LI') {
+                draggedElement.classList.remove('drag');
+                draggedElement.style.opacity = 'unset';
+            }
+        });
 
         checkbox_ico.addEventListener('click', () => {
             checkbox_ico.textContent = 'check_box';
