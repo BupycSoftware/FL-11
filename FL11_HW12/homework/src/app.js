@@ -206,6 +206,7 @@ function loadFromStorage() {
                     }
                 }
                 localStorage.setItem('list', JSON.stringify(data));
+                sortChecked();
                 loadFromStorage();
             });
         }
@@ -232,16 +233,16 @@ function checkInStorage(el) {
 
 function sortChecked() {
     if (data.length !== 0) {
-        let arr1 = [];
-        let arr2 = [];
+        let unchecked_elements_arr = [];
+        let checked_elements_arr = [];
         for (let i = 0; i < data.length; i++) {
             if (data[i].checked === true) {
-                arr1.unshift(data[i]);
+                unchecked_elements_arr.unshift(data[i]);
             } else {
-                arr2.push(data[i]);
+                checked_elements_arr.push(data[i]);
             }
         }
-        data = arr2.concat(arr1);
+        data = checked_elements_arr.concat(unchecked_elements_arr);
         localStorage.setItem('list', JSON.stringify(data));
     }
 }
