@@ -1,0 +1,87 @@
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    color: #39b3fe;
+    width: 700px;
+    margin: 0 auto;
+}
+h1 {
+    margin-bottom: 0;
+}
+.ifMaxShow {
+    visibility: hidden;
+    color: red;
+    margin: 0;
+}
+.addNew {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+}
+#newCat {
+    padding: 15px 10px;
+    border-radius: 3px;
+    border: 1px solid #c8d0d8;
+    width: 100%;
+}
+#add {
+    font-size: 45px;
+    margin: 0 0 0 20px;
+}
+.enabled {
+    cursor: pointer;
+    color: #39b3fe;
+}
+.disabled {
+    color: #c8d0d8;
+}
+hr {
+    width: 100%;
+    border: 2px solid #e4f2fe;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+}
+ul li {
+    cursor: move;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 5px;
+}
+.added_ico_checkbox {
+    cursor: pointer;
+    color: #c8d0d8;
+    font-size: 30px;
+}
+.added_input_text {
+    margin-right: 5px;
+    padding: 6.5px 10px;
+    border-radius: 3px;
+    border: 1px solid #c8d0d8;
+}
+.added_label_text {
+    font-size: 20px;
+    color: #39b3fe;
+    margin: 0 10px 0 5px;
+}
+.added_ico_edit {
+    cursor: pointer;
+}
+.added_ico_save {
+    cursor: pointer;
+}
+.added_ico_delete {
+    cursor: pointer;
+    margin-left: auto;
+}
+.text_hidden {
+    display: none;
+}
+.drag {
+    border: 2px dashed #000;
+}
