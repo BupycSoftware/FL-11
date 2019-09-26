@@ -181,7 +181,6 @@ function loadFromStorage() {
                 localStorage.setItem('list', JSON.stringify(data));
                 loadFromStorage();
             });
-
             p.addEventListener('click', (e) => {
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].name === e.target.textContent) {
@@ -196,7 +195,6 @@ function loadFromStorage() {
                     location.hash = '#modify';
                 }
             });
-
             remove.addEventListener('click', (e) => {
                 let text = e.target.previousSibling.textContent;
                 e.target.parentNode.parentNode.removeChild(e.target.parentNode);
